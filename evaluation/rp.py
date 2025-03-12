@@ -55,6 +55,7 @@ def test(u_sum, times) -> tuple[int, int, int, int]:
         schedulable = schedulability_test_da_with_maxar(task_set)
         if schedulable:
             num_schedulable_da += 1
+        # RP model
         task_set = RPTaskSet.from_task_set(task_set)
         task_set.set_random_local_preemptibility(preemptible_ratio)
         schedulable = schedulability_test_rp(task_set)
